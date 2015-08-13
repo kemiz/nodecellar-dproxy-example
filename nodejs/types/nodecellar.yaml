@@ -67,21 +67,6 @@ node_types:
 relationships:
 
   ###########################################################
-  # This relationship is responsible for setting the mongo
-  # host ip on the source node as a runtime property.
-  #
-  # This will enable the source node to locate the mongo
-  # database.
-  ###########################################################
-
-  node_connected_to_mongo:
-    derived_from: cloudify.relationships.connected_to
-    target_interfaces:
-      cloudify.interfaces.relationship_lifecycle:
-        postconfigure: https://raw.githubusercontent.com/kemiz/mongodb-cfy3/3.2-dproxy/scripts/mongo/set-mongo-url.sh
-
-
-  ###########################################################
   # This relationship is responsible for setting the nodejs
   # location on the source node.
   #
@@ -93,4 +78,4 @@ relationships:
     derived_from: cloudify.relationships.contained_in
     target_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        preconfigure: https://raw.githubusercontent.com/kemiz/mongodb-cfy3/3.2-dproxy/scripts/nodejs/set-nodejs-root.sh
+        preconfigure: https://raw.githubusercontent.com/kemiz/nodecellar-dproxy-example/3.2/nodejs/scripts/nodejs/set-nodejs-root.sh
