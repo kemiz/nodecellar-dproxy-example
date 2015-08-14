@@ -18,7 +18,7 @@ node_types:
     derived_from: cloudify.nodes.ApplicationServer
     interfaces:
       cloudify.interfaces.lifecycle:
-        create: https://raw.githubusercontent.com/kemiz/nodecellar-dproxy-example/master/nodejs/scripts/nodejs/install-nodejs.sh
+        create: scripts/nodejs/install-nodejs.sh
 
 
   ###########################################################
@@ -51,9 +51,9 @@ node_types:
         default: server.js
     interfaces:
       cloudify.interfaces.lifecycle:
-        configure: https://raw.githubusercontent.com/kemiz/nodecellar-dproxy-example/3.2/nodejs/scripts/nodecellar/install-nodecellar-app.sh
-        start: https://raw.githubusercontent.com/kemiz/nodecellar-dproxy-example/3.2/nodejs/scripts/nodecellar/start-nodecellar-app.sh
-        stop: https://raw.githubusercontent.com/kemiz/nodecellar-dproxy-example/3.2/nodejs/scripts/nodecellar/stop-nodecellar-app.sh
+        configure: scripts/nodecellar/install-nodecellar-app.sh
+        start: scripts/nodecellar/start-nodecellar-app.sh
+        stop: scripts/nodecellar/stop-nodecellar-app.sh
 
 
 ################################################################
@@ -78,4 +78,4 @@ relationships:
     derived_from: cloudify.relationships.contained_in
     target_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        preconfigure: https://raw.githubusercontent.com/kemiz/nodecellar-dproxy-example/master/nodejs/scripts/nodejs/set-nodejs-root.sh
+        preconfigure: scripts/nodejs/set-nodejs-root.sh
